@@ -9,8 +9,15 @@
   <link href = "https://fonts.googleapis.com/css2? family = Roboto & display = swap" rel = "hoja de estilo ">     
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="alertifyjs/css/alertify.css">
+  <link rel="stylesheet" type="text/css" href="alertifyjs/css/themes/default.css">
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src="alertifyjs/alertify.js"></script>
+  <script src="https://api.bitrix24.com/api/v1/"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
 </head>
 <body>
   <main>
@@ -24,23 +31,29 @@
             <h1 class="login-title">Registro</h1>
             <form action="#!">
               <div class="form-group mb-4">
-                  <input type="password" name="password" id="cedula" class="form-control" placeholder="Ingrese su Cédula">
+                  <input type="text" name="cedula" id="cedula" class="form-control" placeholder="Ingrese su Cédula">
               </div>
-              <button type="button" id="btn-ingresar" class="btn btn-outline-secondary btn-lg">Ingresar</button>
+              <button type="button" id="btn-ingresar" onclick="accionBotonIngresar()" class="btn btn-outline-secondary btn-lg" >Ingresar</button>
             </form>
           </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block container-left">
+          <div class="container-loading" id="container-loading">
+            <img src="images/load1gif.gif" alt="loading imagen" class="loading-img">
+          </div>
           <img src="images/imgLogin.jpg" alt="login image" class="login-img">
-          <button type="button" id="btn-entrada" class="btn btn-outline-secondary btn-lg">Marcar entrada</button>
-          <button type="button" id="btn-salida" class="btn btn-outline-secondary btn-lg">Marcar salida</button>
+          <button type="button" id="btn-entrada"  class="btn btn-outline-secondary btn-lg" disabled>Marcar entrada</button>
+          <button type="button" id="btn-salida"  class="btn btn-outline-secondary btn-lg" disabled>Marcar salida</button>
         </div>
       </div>
     </div>
   </main>
-      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-      <script src="js/backend.js"></script>
+      <script type="text/javascript">
+        BX24.init(function()
+        {
+        	initializeApp();
+        });
+        
+      </script>
 </body>
-</html>
+</html>    
